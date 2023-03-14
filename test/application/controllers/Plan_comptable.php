@@ -8,7 +8,7 @@ class Plan_comptable extends CI_Controller {
     $this->load->view('plan_comptable/index', $data);
   }
 
-  public function ajouter() {
+  public function add() {
     if($this->input->post()) {
       $this->pcmodel->ajouter_compte();
       redirect('/plan_comptable');
@@ -16,7 +16,7 @@ class Plan_comptable extends CI_Controller {
     $this->load->view('plan_comptable/create');
   }
 
-  public function modifier($id) {
+  public function edit($id) {
     if($this->input->post()) {
       $this->pcmodel->modifier_compte($id);
       redirect('/plan_comptable');
@@ -25,7 +25,7 @@ class Plan_comptable extends CI_Controller {
     $this->load->view('plan_comptable/edit', $data);
   }
 
-  public function supprimer($id) {
+  public function delete($id) {
     $this->pcmodel->supprimer_compte($id);
     redirect('/plan_comptable');
   }

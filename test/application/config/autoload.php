@@ -131,4 +131,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('Plan_comptable_model' => 'pcmodel');
+$autoload['model'] = array('User_model' => 'usermodel','Society_model' => 'societymodel');
