@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/custom.css">
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.css">
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/custom.css');?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.css');?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
     <link rel="stylesheet" href="icons/bootstrap-icons.css">
-    <script src="<?php echo base_url();?>assets/js/popper.min.js"></script>
-    <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url();?>assets/js/bootstrap.bundle.min.js"></script>
-    <script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
-    <script src="<?php echo base_url();?>assets/js/parsley.min.js"></script>
+    <script src="<?php echo base_url('assets/js/popper.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/jquery.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/parsley.min.js');?>"></script>
   </head>
   <body>
     <div class="content">
