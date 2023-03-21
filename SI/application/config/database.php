@@ -74,11 +74,11 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'pgsql:host=localhost;port=5432;dbname=SI',
+	'dsn'	=> 'pgsql:host=localhost;dbname=si',
 	'hostname' => 'localhost',
 	'username' => 'postgres',
-	'password' => '1864',
-	'database' => 'SI',
+	'password' => 'mdp',
+	'database' => 'si',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
