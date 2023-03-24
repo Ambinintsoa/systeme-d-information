@@ -1,7 +1,8 @@
 <link href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
+<link rel="stylesheet" href="<?php echo base_url('assets/fontawesome-5/css/all.min.css'); ?>">
 
 <div class="container">
-    <footer class="py-5">
+    <footer class="py-5 mt-5">
         <div class="row">
             <div class="col-6 col-md-2 mb-3">
                 <h5>Section</h5>
@@ -50,17 +51,11 @@
         </div>
 
         <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-            <p>&copy; 2022 Company, Inc. All rights reserved.</p>
+            <p>&copy; 2023 Company, Inc. All rights reserved.</p>
             <ul class="list-unstyled d-flex">
-                <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
-                            <use xlink:href="#twitter" />
-                        </svg></a></li>
-                <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
-                            <use xlink:href="#instagram" />
-                        </svg></a></li>
-                <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
-                            <use xlink:href="#facebook" />
-                        </svg></a></li>
+                <li class="ms-3"><a class="link-dark" href="#"><i class="fab fa-twitter" width="16" height="16"></i></a></li>
+                <li class="ms-3"><a class="link-dark" href="#"><i class="fab fa-instagram" width="16" height="16"></i></a></li>
+                <li class="ms-3"><a class="link-dark" href="#"><i class="fab fa-facebook" width="16" height="16"></i></a></li>
             </ul>
         </div>
     </footer>

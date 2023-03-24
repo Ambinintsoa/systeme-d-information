@@ -18,8 +18,8 @@ class Login extends CI_Controller
 		if ($login==null) {
 			redirect('Login');
 		} else {
-			$this->session->set_userdata('iduser',$login['ID']);
-			redirect('Home');
+			$this->session->set_userdata('iduser',$login['id']);
+			redirect('Balance');
 		}
 	}
 }
