@@ -53,6 +53,10 @@
                         <label for="floatingInput">Date Creation</label>
                     </div>
                     <div class="form-floating mb-3">
+                        <input type="file" class="form-control rounded-3" id="floatingInput" placeholder="file of the logo" name="filelogo" size="50">
+                        <label for="floatingInput">Upload LOGO</label>
+                    </div>
+                    <div class="form-floating mb-3">
                         <input type="text" class="form-control rounded-3" id="floatingInput" placeholder="number of the nif" name="numnif">
                         <label for="floatingInput">Numero NIF</label>
                     </div>

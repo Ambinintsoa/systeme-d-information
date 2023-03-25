@@ -1,139 +1,71 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js'); ?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-5.3.0-alpha1-dist/css/style.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/fontawesome-5/css/all.min.css'); ?>">
 
 <!-- Section: Design Block -->
-<section class="background-radial-gradient overflow-hidden">
-    <style>
-        .background-radial-gradient {
-            background-color: hsl(218, 41%, 15%);
-            background-image: radial-gradient(650px circle at 0% 0%,
-                    hsl(218, 41%, 35%) 15%,
-                    hsl(218, 41%, 30%) 35%,
-                    hsl(218, 41%, 20%) 75%,
-                    hsl(218, 41%, 19%) 80%,
-                    transparent 100%),
-                radial-gradient(1250px circle at 100% 100%,
-                    hsl(218, 41%, 45%) 15%,
-                    hsl(218, 41%, 30%) 35%,
-                    hsl(218, 41%, 20%) 75%,
-                    hsl(218, 41%, 19%) 80%,
-                    transparent 100%);
-        }
 
-        #radius-shape-1 {
-            height: 220px;
-            width: 220px;
-            top: -60px;
-            left: -130px;
-            background: radial-gradient(#44006b, #ad1fff);
-            overflow: hidden;
-        }
-
-        #radius-shape-2 {
-            border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
-            bottom: -60px;
-            right: -110px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(#44006b, #ad1fff);
-            overflow: hidden;
-        }
-
-        .bg-glass {
-            background-color: hsla(0, 0%, 100%, 0.9) !important;
-            backdrop-filter: saturate(200%) blur(25px);
-        }
-    </style>
-
-    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
-        <div class="row gx-lg-5 align-items-center mb-5">
-            <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-                <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-                    The best offer <br />
-                    <span style="color: hsl(218, 81%, 75%)">for your business</span>
-                </h1>
-                <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
-                "don't try to be a man of success, but rather a man of value". &nbsp;
-                "the best way to predict the future is to create it". &nbsp;
-                "success is a consequence not a goal".
-                </p>
+<div class="modal modal-signin position-static d-block bg-secondary py-5" tabindex="-1" role="dialog" id="modalSignin">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header p-5 pb-4 border-bottom-0">
+                <h1 class="fw-bold mb-0 fs-2">Sign Up</h1>
             </div>
 
-            <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
-                <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
-                <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
-
-                <div class="card bg-glass">
-                    <div class="card-body px-4 py-5 px-md-5">
-                        <form action="<?php echo base_url("Signup/validate"); ?>" class="signin-form" method="POST">
-                            <!-- 2 column grid layout with text inputs for the first and last names -->
-                            <div class="row">
-                                <div class="col-md-6 mb-4">
-                                    <div class="form-outline">
-                                        <input type="text" id="form3Example1" class="form-control" name="firstname" />
-                                        <label class="form-label" for="form3Example1">First name</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <div class="form-outline">
-                                        <input type="text" id="form3Example2" class="form-control" name="lastname" />
-                                        <label class="form-label" for="form3Example2">Last name</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Email input -->
-                            <div class="form-outline mb-4">
-                                <input type="email" id="form3Example3" class="form-control" name="email" />
-                                <label class="form-label" for="form3Example3">Email address</label>
-                            </div>
-
-                            <!-- Password input -->
-                            <div class="form-outline mb-4">
-                                <input type="password" id="form3Example4" class="form-control" name="password" />
-                                <label class="form-label" for="form3Example4">Password</label>
-                            </div>
-
-                            <!-- Checkbox -->
-                            <div class="form-check d-flex justify-content-center mb-4">
-                                <input class="form-check-input me-2" type="checkbox" id="form2Example33" checked />
-                                <label class="form-check-label" for="form2Example33">
-                                    Subscribe to our newsletter
-                                </label>
-                            </div>
-
-                            <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary btn-block mb-4">
-                                Sign up
-                            </button>
-
-                            <!-- Register buttons -->
-                            <div class="text-center">
-                                <p>or sign up with:</p>
-                                <button type="button" class="btn btn-link btn-floating mx-1">
-                                    <i class="fab fa-facebook-f"></i>
-                                </button>
-
-                                <button type="button" class="btn btn-link btn-floating mx-1">
-                                    <i class="fab fa-google"></i>
-                                </button>
-
-                                <button type="button" class="btn btn-link btn-floating mx-1">
-                                    <i class="fab fa-twitter"></i>
-                                </button>
-
-                                <button type="button" class="btn btn-link btn-floating mx-1">
-                                    <i class="fab fa-github"></i>
-                                </button>
-                            </div>
-
-                            <p class="text-center" >Already a member ?<a href="<?php echo base_url("Login/index"); ?>">Log in</a></p>
-                        </form>
+            <div class="modal-body p-5 pt-0">
+                <form action="Signup/add" class="signin-form" method="POST">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com" name="fname">
+                        <label for="floatingInput">First name</label>
                     </div>
-                </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com" name="lname">
+                        <label for="floatingInput">Last name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com" name="idposte">
+                        <label for="floatingInput">Poste</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com" name="mail">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password" name="pass">
+                        <label for="floatingPassword">Password</label>
+                    </div>
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary theme-color" type="submit">Submit</button>
+                    <small class="text-muted">By clicking Log In, you agree to the terms of use.</small>
+                    <hr class="my-4">
+                    <h2 class="fs-5 fw-bold mb-3">Or use a third-party</h2>
+                    <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-3" type="submit">
+                        <i class="fab fa-twitter" width="16" height="16"></i>
+                        Log In with Twitter
+                    </button>
+                    <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">
+                        <i class="fab fa-facebook" width="16" height="16"></i>
+                        Log In with Facebook
+                    </button>
+                    <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
+                        <i class="fab fa-github" width="16" height="16"></i>
+                        Log In with GitHub
+                    </button>
+
+                    <div class="form-check d-flex justify-content-center mb-4">
+                        <input class="form-check-input me-2" type="checkbox" id="form2Example33" checked />
+                        <label class="form-check-label" for="form2Example33">
+                            Subscribe to our newsletter
+                        </label>
+                        <div class="w-50 text-md-right">
+                            <a href="#">Forgot Password ?</a>
+                        </div>
+                    </div>
+
+                    <p class="text-center">New here ? Sign up <a data-toggle="tab" href="<?php echo base_url("Signup/index"); ?>">here</a></p>
+                </form>
             </div>
         </div>
     </div>
-</section>
+</div>
+
 <!-- Section: Design Block -->

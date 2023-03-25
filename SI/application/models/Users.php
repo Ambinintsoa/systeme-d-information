@@ -17,10 +17,4 @@ class Users extends CI_Model
         }
         return $users;
     }
-    public function addUser($firstname, $lastname, $email, $pwd)
-    {
-        $data = array('firstname' => $firstname, 'lastname' => $lastname, 'email' => $email, 'password' => $pwd);
-        $str = $this->db->insert_string('users', $data);
-        $this->db->query($str);
-    }
 }
