@@ -26,8 +26,8 @@
                   <td><?php echo $compte->numero; ?></td>
                   <td><?php echo $compte->name; ?></td>
                   <td><?php echo $compte->type_tiers; ?></td>
-                  <td><a href="compte_tiers/edit/<?php echo $compte->id; ?>"><button class="btn btn-primary">edit</button></a></td>
-                  <td><a href="compte_tiers/delete/<?php echo $compte->id; ?>"><button class="btn btn-secondary">delete</button></a></td>
+                  <td><a href="Compte_tiers/edit/<?php echo $compte->id; ?>"><button class="btn btn-primary">edit</button></a></td>
+                  <td><a href="Compte_tiers/delete/<?php echo $compte->id; ?>"><button class="btn btn-secondary">delete</button></a></td>
                 </tr>
               <?php } ?>
             </tbody>

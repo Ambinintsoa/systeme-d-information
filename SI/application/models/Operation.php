@@ -18,7 +18,7 @@ class Operation extends CI_Model
     }
     public function getAllSociety()
     {
-        $query = $this->db->get_where('society');
+        $query = $this->db->get('society');
         foreach ($query->result_array() as $row) {
             $imglist[] = $row;
         }
@@ -34,11 +34,15 @@ class Operation extends CI_Model
     public function getAllInformationAboutTheOperation()
     {
         $compte = array();
-        $request = "SELECT pc.id, pc.num_compte, pc.nom_compte, o.type, (SUM(o.valeur)) as somme FROM operation o JOIN plan_comptable pc ON pc.id = o.compte GROUP BY pc.id, o.type ORDER BY pc.id";
+        $request = "SELECT o.date, pc.id, pc.num_compte, o.num_operation, pc.nom_compte, o.type, (SUM(o.valeur)) as somme FROM operation o JOIN plan_comptable pc ON pc.id = o.compte GROUP BY pc.id, o.type ORDER BY pc.id";
         $query = $this->db->query($request);
         foreach ($query->result_array() as $row) {
             $compte[] = $row;
         }
         return $compte;
+    }
+
+    public function deleteOperation($num) {
+        $this->db->delete('operation', array('num_operation' => $num));
     }
 }

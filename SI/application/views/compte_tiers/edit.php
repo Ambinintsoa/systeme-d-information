@@ -12,7 +12,7 @@
           <h4>Modification</h4>
         </div>
         <div class="card-body">
-          <form method="POST" action="<?php echo site_url('compte_tiers/edit/' . $compte->id);?>">
+          <form method="POST" action="<?php echo site_url('Compte_tiers/edit/' . $compte->id);?>">
             <div class="form-group">
               <label for="code">Numero</label>
               <input type="text" name="num" id="code" class="form-control" required value="<?php echo $compte->numero; ?>">

@@ -63,7 +63,7 @@ class Balance extends CI_Controller {
 				$this->session->set_userdata('transaction',$tab);
 				echo json_encode(array("status" => "true","message"=>"operation completed successfully"));
 			}
-			redirect('balance');
+			redirect('Balance');
 			
 		}
 

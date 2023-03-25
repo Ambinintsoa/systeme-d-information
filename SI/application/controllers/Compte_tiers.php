@@ -16,7 +16,7 @@ class Compte_tiers extends CI_Controller {
     public function add() {
         if($this->input->post()) {
         $this->compte_tiers_model->add_compte();
-        redirect('/compte_tiers');
+        redirect('Compte_tiers');
         }
         $this->load->view('compte_tiers/add');
     }
@@ -34,6 +34,6 @@ class Compte_tiers extends CI_Controller {
 
     public function delete($id) {
         $this->compte_tiers_model->delete_compte($id);
-        redirect('/compte_tiers');
+        redirect('Compte_tiers');
     }
 }

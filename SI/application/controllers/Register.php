@@ -11,6 +11,14 @@ class Register extends CI_Controller
     
     public function validate()
     {
+        $config1['file_name']   = $_FILES['filelogo']['name'];
+        $config1['upload_path']   = './assets/img/';
+        $config1['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config1['max_size']      = 10000;
+        $config1['max_width']     = 10000;
+        $config1['max_height']    = 10000;
+        $logo = $this->input->post('logo');
+
         $config1['file_name']   = $_FILES['filenif']['name'];
         $config1['upload_path']   = './assets/img/';
         $config1['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -55,8 +63,8 @@ class Register extends CI_Controller
             $path1 = $config1['upload_path'] . $config1['file_name'];
             $path2 = $config2['upload_path'] . $config2['file_name'];
             $path3 = $config3['upload_path'] . $config3['file_name'];
-            $this->Society->addSociety($name, $object, $leader, $residence, $address, $tel, $email, $date_creation);
-            $society = $this->Society->getSocietyByAllInformation($name, $object, $leader, $residence, $address, $tel, $email, $date_creation);
+            $this->Society->addSociety($name, $object, $leader, $residence, $address, $tel, $email, $date_creation, $logo);
+            $society = $this->Society->getSocietyByAllInformation($name, $object, $leader, $residence, $address, $tel, $email, $date_creation, $logo);
             $this->Document->addDocument($society['id'], $id1, $numero1, $path1);
             $this->Document->addDocument($society['id'], $id2, $numero2, $path2);
             $this->Document->addDocument($society['id'], $id3, $numero3, $path3);

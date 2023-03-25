@@ -15,7 +15,7 @@ class Exercice extends CI_Controller {
   public function add() {
     if($this->input->post()) {
       $this->Exercice_model->add_exercice();
-      redirect('/Exercice');
+      redirect('Exercice');
     }
     $this->load->view('exercice/add');
   }
@@ -23,7 +23,7 @@ class Exercice extends CI_Controller {
   public function edit($id) {
     if($this->input->post()) {
       $this->Exercice_model->edit_exercice($id);
-      redirect('/Exercice');
+      redirect('Exercice');
     }
     $data['compte'] = $this->Exercice_model->get_exercice_by_id($id);
     $this->load->view('exercice/edit', $data);
@@ -31,7 +31,7 @@ class Exercice extends CI_Controller {
 
   public function delete($id) {
     $this->Exercice_model->delete_exercice($id);
-    redirect('/Exercice');
+    redirect('Exercice');
   }
 
 }

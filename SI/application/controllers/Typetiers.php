@@ -14,7 +14,7 @@ class Typetiers extends CI_Controller {
     public function add() {
         if($this->input->post()) {
         $this->Type_tiers_model->add_tiers();
-        redirect('/typetiers');
+        redirect('Typetiers');
         }
         $this->load->view('type_tiers/add');
     }
@@ -30,6 +30,6 @@ class Typetiers extends CI_Controller {
 
     public function delete($id) {
         $this->Type_tiers_model->delete_tiers($id);
-        redirect('/typetiers');
+        redirect('Typetiers');
     }
 }

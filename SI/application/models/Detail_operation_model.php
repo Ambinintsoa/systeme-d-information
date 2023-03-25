@@ -5,14 +5,14 @@ class Detail_operation_model extends CI_Model
 {
     public function get_detoperation()
     {
-        $query = $this->db->get('DETAIL_OPERATION');
+        $query = $this->db->get('detail_operation');
         return $query->result();
     }
 
     public function get_detoperation_by_id($id)
     {
         $this->db->where('id', $id);
-        $query = $this->db->get('DETAIL_OPERATION');
+        $query = $this->db->get('detail_operation');
         return $query->row();
     }
 
@@ -22,7 +22,7 @@ class Detail_operation_model extends CI_Model
             'IDOPERATION' => $this->input->post('idoperation'),
             'IDTIERS' => $this->input->post('idtiers')
         );
-        $this->db->insert('DETAIL_OPERATION', $data);
+        $this->db->insert('detail_operation', $data);
     }
 
     public function edit_detoperation($id)
@@ -32,12 +32,12 @@ class Detail_operation_model extends CI_Model
             'IDTIERS' => $this->input->post('idtiers')
         );
         $this->db->where('id', $id);
-        $this->db->update('DETAIL_OPERATION', $data);
+        $this->db->update('detail_operation', $data);
     }
 
     public function delete_detoperation($id)
     {
         $this->db->where('id', $id);
-        $this->db->delete('DETAIL_OPERATION');
+        $this->db->delete('detail_operation');
     }
 }

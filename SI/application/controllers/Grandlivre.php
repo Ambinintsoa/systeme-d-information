@@ -15,4 +15,10 @@ class Grandlivre extends CI_Controller
         $this->load->view('grandlivre', $operation);
         $this->load->view('footer');
     }
+
+    public function delete($num)
+    {
+        $this->Operation->deleteOperation($num);
+        redirect('Grandlivre');
+    }
 }

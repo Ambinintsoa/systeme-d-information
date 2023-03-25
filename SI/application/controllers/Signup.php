@@ -15,7 +15,7 @@ class Signup extends CI_Controller
       public function add() {
         if($this->input->post()) {
           $this->Users_model->add_user();
-          redirect('/Login');
+          redirect('Login');
         }
       }
 }

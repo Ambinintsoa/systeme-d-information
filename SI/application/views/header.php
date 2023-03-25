@@ -19,7 +19,7 @@
             </a>
 
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="<?php echo base_url('Welcome/'); ?>" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('Welcome'); ?>" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>

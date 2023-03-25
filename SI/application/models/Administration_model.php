@@ -5,14 +5,14 @@ class Administration_model extends CI_Model
 {
     public function get_administration()
     {
-        $query = $this->db->get('ADMINISTRATION');
+        $query = $this->db->get('administration');
         return $query->result();
     }
 
     public function get_administration_by_id($id)
     {
         $this->db->where('id', $id);
-        $query = $this->db->get('ADMINISTRATION');
+        $query = $this->db->get('administration');
         return $query->row();
     }
 
@@ -22,7 +22,7 @@ class Administration_model extends CI_Model
             'NAME' => $this->input->post('name'),
             'REF' => $this->input->post('ref')
         );
-        $this->db->insert('ADMINISTRATION', $data);
+        $this->db->insert('administration', $data);
     }
 
     public function edit_administration($id)
@@ -32,12 +32,12 @@ class Administration_model extends CI_Model
             'REF' => $this->input->post('ref')
         );
         $this->db->where('id', $id);
-        $this->db->update('ADMINISTRATION', $data);
+        $this->db->update('administration', $data);
     }
 
     public function delete_administration($id)
     {
         $this->db->where('id', $id);
-        $this->db->delete('ADMINISTRATION');
+        $this->db->delete('administration');
     }
 }

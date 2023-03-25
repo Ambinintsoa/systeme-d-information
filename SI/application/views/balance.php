@@ -85,44 +85,42 @@
           <button type="submit" class="btn btn-secondary mb-2 posedit theme-color btn1">Valider</button>
         </div>
       </center>
-  </form>
+    </form>
 
-  <!-- table -->
-  <table class="table">
-    <thead class="table-dark">
-      <tr>
-        <th scope="col">Date</th>
-        <th scope="col">Journal</th>
-        <th scope="col">Compte</th>
-        <th scope="col">Compte tiers</th>
-        <th scope="col">debit</th>
-        <th scope="col">credit</th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
-    <?php for ($i = 0; $i < count($_SESSION['transaction']); $i++) { ?>
-      <tr>
-        <th scope="col"><?php echo $_SESSION['transaction'][$i]['date']; ?></th>
-        <th scope="col"><?php echo $this->Balance_model->selectCode($_SESSION['journal'])->code; ?></th>
-        <th scope="col"><?php echo $_SESSION['transaction'][$i]['compte']; ?></th>
-        <th scope="col"><?php echo $_SESSION['transaction'][$i]['tiers']; ?></th>
-        <?php if ($_SESSION['transaction'][$i]['situation'] == 1) { ?>
-          <th scope="col"><?php echo $_SESSION['transaction'][$i]['montant']; ?></th>
-          <th scope="col"></th>
-        <?php } else { ?>
-          <th scope="col"></th>
-          <th scope="col"><?php echo $_SESSION['transaction'][$i]['montant']; ?></th>
-        <?php } ?>
-      </tr>
-    <?php } ?>
-  </table>
-  <center>
-    <div class="col-auto auto1">
-    </div>
-  </center>
-  </div>
-  
+    <!-- table -->
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Journal</th>
+          <th scope="col">Compte</th>
+          <th scope="col">Compte tiers</th>
+          <th scope="col">debit</th>
+          <th scope="col">credit</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+      <?php for ($i = 0; $i < count($_SESSION['transaction']); $i++) { ?>
+        <tr>
+          <th scope="col"><?php echo $_SESSION['transaction'][$i]['date']; ?></th>
+          <th scope="col"><?php echo $this->Balance_model->selectCode($_SESSION['journal'])->code; ?></th>
+          <th scope="col"><?php echo $_SESSION['transaction'][$i]['compte']; ?></th>
+          <th scope="col"><?php echo $_SESSION['transaction'][$i]['tiers']; ?></th>
+          <?php if ($_SESSION['transaction'][$i]['situation'] == 1) { ?>
+            <th scope="col"><?php echo $_SESSION['transaction'][$i]['montant']; ?></th>
+            <th scope="col"></th>
+          <?php } else { ?>
+            <th scope="col"></th>
+            <th scope="col"><?php echo $_SESSION['transaction'][$i]['montant']; ?></th>
+          <?php } ?>
+        </tr>
+      <?php } ?>
+    </table>
+    <center>
+      <div class="col-auto auto1">
+      </div>
+    </center>
   </div>
 </body>
 
