@@ -19,7 +19,7 @@ class Document_model extends CI_Model
     public function add_document()
     {
         $data = array(
-            'IDADMINISTRATION' => $this->input->post('idadmin'),
+            'idadministration' => $this->input->post('idadmin'),
             'NUMERO' => $this->input->post('numero'),
             'document' => $this->input->post('document')
         );
@@ -29,7 +29,7 @@ class Document_model extends CI_Model
     public function edit_document($id)
     {
         $data = array(
-            'IDADMINISTRATION' => $this->input->post('idadmin'),
+            'idadministration' => $this->input->post('idadmin'),
             'NUMERO' => $this->input->post('numero'),
             'document' => $this->input->post('document')
         );

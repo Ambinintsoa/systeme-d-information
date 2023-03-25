@@ -80,8 +80,8 @@ function importExcelToDatabase($file_path) {
         $file = fopen($fileName, "r");
         while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
           $data = array(
-            'NUM_COMPTE' => $column[0],
-            'NOM_COMPTE' => $column[1]
+            'num_compte' => $column[0],
+            'nom_compte' => $column[1]
           );
           $this->db->insert('plan_comptable', $data);
         }

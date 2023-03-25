@@ -16,7 +16,7 @@ class Codejournal extends CI_Controller {
       public function add() {
         if($this->input->post()) {
           $this->Code_journal_model->add_code();
-          redirect('/codejournal');
+          redirect('Codejournal');
         }
         $this->load->view('code_de_journal/add');
       }
@@ -24,7 +24,7 @@ class Codejournal extends CI_Controller {
       public function edit($id) {
         if($this->input->post()) {
           $this->Code_journal_model->edit_code($id);
-          redirect('/codejournal');
+          redirect('Codejournal');
         }
         $data['code'] = $this->Code_journal_model->get_code_par_id($id);
         $this->load->view('code_de_journal/edit', $data);
@@ -32,6 +32,6 @@ class Codejournal extends CI_Controller {
     
       public function delete($id) {
         $this->Code_journal_model->delete_code($id);
-        redirect('/codejournal');
+        redirect('Codejournal');
       }
 }

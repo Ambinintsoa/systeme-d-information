@@ -19,8 +19,8 @@ class Detail_operation_model extends CI_Model
     public function add_detoperation()
     {
         $data = array(
-            'IDOPERATION' => $this->input->post('idoperation'),
-            'IDTIERS' => $this->input->post('idtiers')
+            'idoperation' => $this->input->post('idoperation'),
+            'idtiers' => $this->input->post('idtiers')
         );
         $this->db->insert('detail_operation', $data);
     }
@@ -28,8 +28,8 @@ class Detail_operation_model extends CI_Model
     public function edit_detoperation($id)
     {
         $data = array(
-            'IDOPERATION' => $this->input->post('idoperation'),
-            'IDTIERS' => $this->input->post('idtiers')
+            'idoperation' => $this->input->post('idoperation'),
+            'idtiers' => $this->input->post('idtiers')
         );
         $this->db->where('id', $id);
         $this->db->update('detail_operation', $data);
