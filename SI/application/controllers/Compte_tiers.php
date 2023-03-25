@@ -24,7 +24,7 @@ class Compte_tiers extends CI_Controller {
     public function edit($id) {
         if($this->input->post()) {
         $this->compte_tiers_model->edit_compte($id);
-        redirect('/compte_tiers');
+        redirect('Compte_tiers');
         }
         $data['compte'] = $this->compte_tiers_model->get_compte_by_id($id);
         $this->load->model('Type_tiers_model');

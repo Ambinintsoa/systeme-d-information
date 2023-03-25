@@ -22,7 +22,7 @@ class Typetiers extends CI_Controller {
     public function edit($id) {
         if($this->input->post()) {
         $this->Type_tiers_model->edit_tiers($id);
-        redirect('/typetiers');
+        redirect('Typetiers');
         }
         $data['compte'] = $this->Type_tiers_model->get_tiers_by_id($id);
         $this->load->view('type_tiers/edit', $data);

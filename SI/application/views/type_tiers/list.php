@@ -24,8 +24,8 @@
                 <tr>
                   <td><?php echo $compte->intitule; ?></td>
                   <td><?php echo $compte->racine; ?></td>
-                  <td><a href="typetiers/edit/<?php echo $compte->id; ?>"><button class="btn btn-primary">edit</button></a></td>
-                  <td><a href="typetiers/delete/<?php echo $compte->id; ?>"><button class="btn btn-secondary">delete</button></a></td>
+                  <td><a href="Typetiers/edit/<?php echo $compte->id; ?>"><button class="btn btn-primary">edit</button></a></td>
+                  <td><a href="Typetiers/delete/<?php echo $compte->id; ?>"><button class="btn btn-secondary">delete</button></a></td>
                 </tr>
               <?php } ?>
             </tbody>
