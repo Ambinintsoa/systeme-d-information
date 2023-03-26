@@ -1,45 +1,40 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Compte_tiers_model extends CI_Model {
+class compte_tiers_model extends CI_Model {
 
-  public function get_comptes($id) {
-    $obj = array();
-    $query = "select * from compte_tiers  where idsociety = %s ";
-    $result = $this->db->query(sprintf($query, $id));
-    foreach ($result->result_array() as $row) {
-        array_push($obj, $row);
-    }
-    return $obj;
+  public function get_compte() {
+    $query = $this->db->get('compte_tiers');
+    return $query->result();
   }
 
-  public function get_compte_par_id($id) {
+  public function get_compte_by_id($id) {
     $this->db->where('id', $id);
-    $query = $this->db->get('COMPTE_TIERS');
+    $query = $this->db->get('compte_tiers');
     return $query->row();
   }
 
-  public function ajouter_compte($num) {
+  public function add_compte($num) {
     $data = array(
-      'IDSOCIETY' => $this->input->post('idsociety'),
-      'NAME' => $this->input->post('name'),
-      'COMPTE' => $this->input->post('compte')
+      'numero' => $this->input->post('num'),
+      'name' => $this->input->post('name'),
+      'type_tiers' => $this->input->post('type')
     );
-    $this->db->insert('COMPTE_TIERS', $data);
+    $this->db->insert('compte_tiers', $data);
   }
 
-  public function modifier_compte() {
+  public function edit_compte($id) {
     $data = array(
-        'IDSOCIETY' => $this->input->post('idsociety'),
-        'NAME' => $this->input->post('name'),
-        'COMPTE' => $this->input->post('compte')
+      'numero' => $this->input->post('num'),
+      'name' => $this->input->post('name'),
+      'type_tiers' => $this->input->post('type')
     );
-    $this->db->where('id', $this->input->post('id'));
-    $this->db->update('COMPTE_TIERS', $data);
-  }
-
-  public function supprimer_compte($id) {
     $this->db->where('id', $id);
-    $this->db->delete('COMPTE_TIERS');
+    $this->db->update('compte_tiers', $data);
+  }
+
+  public function delete_compte($id) {
+    $this->db->where('id', $id);
+    $this->db->delete('compte_tiers');
   }
 }

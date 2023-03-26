@@ -5,41 +5,41 @@ class Document_model extends CI_Model
 {
     public function get_document()
     {
-        $query = $this->db->get('DOCUMENT');
+        $query = $this->db->get('document');
         return $query->result();
     }
 
     public function get_document_by_id($id)
     {
-        $this->db->where('ID', $id);
-        $query = $this->db->get('DOCUMENT');
+        $this->db->where('id', $id);
+        $query = $this->db->get('document');
         return $query->row();
     }
 
     public function add_document()
     {
         $data = array(
-            'IDADMINISTRATION' => $this->input->post('idadmin'),
+            'idadministration' => $this->input->post('idadmin'),
             'NUMERO' => $this->input->post('numero'),
-            'DOCUMENT' => $this->input->post('document')
+            'document' => $this->input->post('document')
         );
-        $this->db->insert('DOCUMENT', $data);
+        $this->db->insert('document', $data);
     }
 
     public function edit_document($id)
     {
         $data = array(
-            'IDADMINISTRATION' => $this->input->post('idadmin'),
+            'idadministration' => $this->input->post('idadmin'),
             'NUMERO' => $this->input->post('numero'),
-            'DOCUMENT' => $this->input->post('document')
+            'document' => $this->input->post('document')
         );
-        $this->db->where('ID', $id);
-        $this->db->update('DOCUMENT', $data);
+        $this->db->where('id', $id);
+        $this->db->update('document', $data);
     }
 
     public function delete_document($id)
     {
-        $this->db->where('ID', $id);
-        $this->db->delete('DOCUMENT');
+        $this->db->where('id', $id);
+        $this->db->delete('document');
     }
 }

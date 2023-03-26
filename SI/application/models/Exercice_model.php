@@ -5,43 +5,43 @@ class Exercice_model extends CI_Model
 {
     public function get_exercice()
     {
-        $query = $this->db->get('EXERCICE');
+        $query = $this->db->get('exercice');
         return $query->result();
     }
 
     public function get_exercice_by_id($id)
     {
-        $this->db->where('ID', $id);
-        $query = $this->db->get('EXERCICE');
+        $this->db->where('id', $id);
+        $query = $this->db->get('exercice');
         return $query->row();
     }
 
     public function add_exercice()
     {
         $data = array(
-            'DEBUT' => $this->input->post('debut'),
-            'DUREE' => $this->input->post('duree'),
-            'TVA' => $this->input->post('tva'),
-            'SOLDE' => $this->input->post('solde')
+            'debut' => $this->input->post('debut'),
+            'duree' => $this->input->post('duree'),
+            'tva' => $this->input->post('tva'),
+            'solde' => $this->input->post('solde')
         );
-        $this->db->insert('EXERCICE', $data);
+        $this->db->insert('exercice', $data);
     }
 
     public function edit_exercice($id)
     {
         $data = array(
-            'DEBUT' => $this->input->post('debut'),
-            'DUREE' => $this->input->post('duree'),
-            'TVA' => $this->input->post('tva'),
-            'SOLDE' => $this->input->post('solde')
+            'debut' => $this->input->post('debut'),
+            'duree' => $this->input->post('duree'),
+            'tva' => $this->input->post('tva'),
+            'solde' => $this->input->post('solde')
         );
-        $this->db->where('ID', $id);
-        $this->db->update('EXERCICE', $data);
+        $this->db->where('id', $id);
+        $this->db->update('exercice', $data);
     }
 
     public function delete_exercice($id)
     {
-        $this->db->where('ID', $id);
-        $this->db->delete('EXERCICE');
+        $this->db->where('id', $id);
+        $this->db->delete('exercice');
     }
 }

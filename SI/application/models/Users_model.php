@@ -5,45 +5,45 @@ class Users_model extends CI_Model
 {
     public function get_user()
     {
-        $query = $this->db->get('USERS');
+        $query = $this->db->get('users');
         return $query->result();
     }
 
     public function get_user_by_id($id)
     {
-        $this->db->where('ID', $id);
-        $query = $this->db->get('USERS');
+        $this->db->where('id', $id);
+        $query = $this->db->get('users');
         return $query->row();
     }
 
     public function add_user()
     {
         $data = array(
-            'FIRSTNAME' => $this->input->post('fname'),
-            'LASTNAME' => $this->input->post('lname'),
-            'EMAIL' => $this->input->post('mail'),
-            'PASSWORD' => $this->input->post('pass'),
-            'IDPOSTE' => $this->input->post('idposte')
+            'firstname' => $this->input->post('fname'),
+            'lastname' => $this->input->post('lname'),
+            'email' => $this->input->post('mail'),
+            'password' => $this->input->post('pass'),
+            'idposte' => $this->input->post('idposte')
         );
-        $this->db->insert('USERS', $data);
+        $this->db->insert('users', $data);
     }
 
     public function edit_user($id)
     {
         $data = array(
-            'FIRSTNAME' => $this->input->post('fname'),
-            'LASTNAME' => $this->input->post('lname'),
-            'EMAIL' => $this->input->post('mail'),
-            'PASSWORD' => $this->input->post('pass'),
-            'IDPOSTE' => $this->input->post('idposte')
+            'firstname' => $this->input->post('fname'),
+            'lastname' => $this->input->post('lname'),
+            'email' => $this->input->post('mail'),
+            'password' => $this->input->post('pass'),
+            'idposte' => $this->input->post('idposte')
         );
-        $this->db->where('ID', $id);
-        $this->db->update('USERS', $data);
+        $this->db->where('id', $id);
+        $this->db->update('users', $data);
     }
 
     public function delete_user($id)
     {
-        $this->db->where('ID', $id);
-        $this->db->delete('USERS');
+        $this->db->where('id', $id);
+        $this->db->delete('users');
     }
 }
