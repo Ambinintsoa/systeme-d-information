@@ -20,9 +20,11 @@ class Balance extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->view('header');
 		$this->load->model('Balance_model');
 		$data['code'] = $this->Balance_model->selectAllCode();
 		$this->load->view('balance',$data);
+		$this->load->view('footer');
 	}
 	public function code(){
 		$this->load->model('Balance_model');
@@ -30,7 +32,7 @@ class Balance extends CI_Controller {
 			$this->session->set_userdata('journal',$this->input->post('journal'));
 			echo json_encode(array("status" => "true","message"=>"operation completed successfully"));
 		}else{
-			echo json_encode(array("status" => "false","message"=>"Please check the code de journal"));
+			echo json_encode(array("status" => "false","message"=>$this->input->post('journal')));
 		}
 		
 	}	
@@ -61,7 +63,7 @@ class Balance extends CI_Controller {
 				$this->session->set_userdata('transaction',$tab);
 				echo json_encode(array("status" => "true","message"=>"operation completed successfully"));
 			}
-			
+			redirect('Balance');
 			
 		}
 

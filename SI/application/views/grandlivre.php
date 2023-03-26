@@ -1,13 +1,8 @@
-<link rel="stylesheet" href="<?php echo base_url('css/custom.css'); ?> ">
-<link rel="stylesheet" href="<?php echo base_url('css/bootstrap.css'); ?>">
-<link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>">
-<link rel="stylesheet" href="<?php echo base_url('icons/bootstrap-icons.css'); ?>">
-<script src="<?php echo base_url('js/popper.min.js'); ?>"></script>
-<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
-<script src="<?php echo base_url('js/bootstrap.bundle.min.js'); ?>"></script>
+<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
+<script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
 
 <body>
-    <div class="content">
+    <div class="container">
         <!-- form -->
         <h3>GRAND LIVRE</h3>
 
@@ -15,6 +10,7 @@
         <table class="table">
             <thead class="table-dark">
                 <tr>
+                    <th scope="col">Date</th>
                     <th scope="col">Identifiant</th>
                     <th scope="col">Numero de compte</th>
                     <th scope="col">Nom compte</th>
@@ -25,7 +21,7 @@
             <tbody>
                 <?php foreach ($operation as $op) { ?>
                     <tr>
-
+                    <th scope="col"><?php echo $op['date']; ?></th>
                         <th scope="col"><?php echo $op['id']; ?></th>
                         <th scope="col"><?php echo $op['num_compte']; ?></th>
                         <th scope="col"><?php echo $op['nom_compte']; ?></th>
@@ -41,6 +37,7 @@
                         } else {
                             echo '';
                         } ?></th>
+                        <th><a href="<?php echo base_url('Grandlivre/edit/' . $op['num_operation']); ?>">supprimer</a></th>
                     </tr>
                 <?php } ?>
             </tbody>

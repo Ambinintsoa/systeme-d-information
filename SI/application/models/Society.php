@@ -10,9 +10,9 @@ class Society extends CI_Model
         $row = $query->row_array();
         return $row;
     }
-    public function getSocietyByAllInformation($name, $object, $leader, $residence, $address, $tel, $email, $date_creation)
+    public function getSocietyByAllInformation($name, $object, $leader, $residence, $address, $tel, $email, $date_creation, $logo)
     {
-        $query = $this->db->get_where('society', array('name' => $name, 'object' => $object, 'leader' => $leader, 'residence' => $residence, 'address' => $address, 'tel' => $tel, 'email' => $email, 'date_creation' => $date_creation));
+        $query = $this->db->get_where('society', array('name' => $name, 'object' => $object, 'leader' => $leader, 'residence' => $residence, 'address' => $address, 'tel' => $tel, 'email' => $email, 'date_creation' => $date_creation, 'logo' => $logo));
         $row = $query->row_array();
         var_dump($row);
         return $row;
@@ -25,9 +25,9 @@ class Society extends CI_Model
         }
         return $imglist;
     }
-    public function addSociety($name, $object, $leader, $residence, $address, $tel, $email, $date_creation)
+    public function addSociety($name, $object, $leader, $residence, $address, $tel, $email, $date_creation, $logo)
     {
-        $data = array('name' => $name, 'object' => $object, 'leader' => $leader, 'residence' => $residence, 'address' => $address, 'tel' => $tel, 'email' => $email, 'date_creation' => $date_creation);
+        $data = array('name' => $name, 'object' => $object, 'leader' => $leader, 'residence' => $residence, 'address' => $address, 'tel' => $tel, 'email' => $email, 'date_creation' => $date_creation, 'logo' => $logo);
         $str = $this->db->insert_string('society', $data);
         $this->db->query($str);
     }
