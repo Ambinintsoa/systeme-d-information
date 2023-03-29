@@ -41,6 +41,7 @@
               <option value="<?php echo $code[$i]->id; ?>"><?php echo $code[$i]->code; ?></option>
             <?php } ?>
           </select>
+          
           <button type="submit" class="btn btn-secondary mb-2 posedit theme-color btn3">Valider</button>
         </div>
       </form>
@@ -48,6 +49,7 @@
     <form action="" id="validate"></form>
     <div class="reinitialize"><a href="<?php echo (base_url()) ?>Balance/delete"><button class="btn btn-secondary ">Reinitialize </button> </a></div>
     <form class="row" data-parsley-validate="" id="form" method="get">
+   
       <div class="col-md-2 col-sm-2">
         <label>Date du</label>
         <input type="date" class="form-control date" name="date" required="">
@@ -100,9 +102,9 @@
         </tr>
       </thead>
       <tbody>
-      </tbody>
+
       <?php for ($i = 0; $i < count($_SESSION['transaction']); $i++) { ?>
-        <tr>
+        <tr >
           <th scope="col"><?php echo $_SESSION['transaction'][$i]['date']; ?></th>
           <th scope="col"><?php echo $this->Balance_model->selectCode($_SESSION['journal'])->code; ?></th>
           <th scope="col"><?php echo $_SESSION['transaction'][$i]['compte']; ?></th>
@@ -116,6 +118,7 @@
           <?php } ?>
         </tr>
       <?php } ?>
+      </tbody>
     </table>
     <center>
       <div class="col-auto auto1">

@@ -1,5 +1,5 @@
 var dataContainer = new Array();
-
+var init = 0;
 function createligne(date,Journal,compte,tiers,montant,situation){
     var ligne = document.createElement("tr");
     var construct = `     
@@ -35,8 +35,9 @@ function successmessage(message) {
 }
 function sendform(url,d,journal) {
 
+    
  $('#form').on("submit",function(event ){
-    console.log("aaa"+journal);
+   
     event.preventDefault();
     var data = undefined;
     let request =
@@ -49,6 +50,7 @@ function sendform(url,d,journal) {
         console.log(output);
         const dat = JSON.parse(output);
         if(dat.status == "true"){
+            console.log($('.inite').val());
             var data = {
                 date : $('.date').val(),
                 journal :journal,
@@ -59,7 +61,20 @@ function sendform(url,d,journal) {
             }
             dataContainer = d;
             var message = successmessage(dat.message);
-
+            sum=0;
+            for (let index = 0; index <dataContainer.length; index++) {
+                if(dataContainer[index]['situation']==1){
+                    sum = sum + Number.parseFloat(dataContainer[index]['montant']);
+                }else{
+                    sum = sum -  Number.parseFloat(dataContainer[index]['montant']);
+                }
+            }
+            if(sum ==0){
+                init = init+1;
+                data['init'] = init;
+            }else{
+                data['init'] = init;
+            }
             dataContainer.push(data);
             console.log(dataContainer);
             verif(dataContainer);

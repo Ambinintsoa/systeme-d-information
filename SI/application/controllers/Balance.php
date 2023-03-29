@@ -69,7 +69,6 @@ class Balance extends CI_Controller {
 				echo json_encode(array("status" => "true","message"=>"operation completed successfully"));
 			}
 
-			redirect('Balance');
 			
 		}
 
@@ -89,7 +88,6 @@ class Balance extends CI_Controller {
 				}
 				$this->session->unset_userdata('transaction') ;
 				$this->session->unset_userdata('journal') ;
-				redirect('balance');
 				echo json_encode(array("status" => "true","message"=>"operation completed successfully"));
 			}else{
 				echo json_encode(array("status" => "false","message"=>"ERROR occurred"));
@@ -101,7 +99,6 @@ class Balance extends CI_Controller {
 	public function delete(){
 		$this->session->unset_userdata('transaction');
 		$this->session->unset_userdata('journal');
-		redirect('balance');
 	}
 	public function verifcompte(){
 		
