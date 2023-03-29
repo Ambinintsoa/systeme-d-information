@@ -79,6 +79,7 @@ $db['default'] = array(
 	'username' => 'postgres',
 	'password' => '1864',
 	'database' => 'SI',
+
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

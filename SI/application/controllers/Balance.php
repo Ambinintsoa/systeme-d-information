@@ -20,9 +20,13 @@ class Balance extends CI_Controller {
 	 */
 	public function index()
 	{
+
+		$this->load->view('header');
 		$this->load->model('Balance_model');
 		$data['code'] = $this->Balance_model->selectAllCode();
 		$this->load->view('balance',$data);
+		$this->load->view('footer');
+
 	}
 	public function code(){
 		$this->load->model('Balance_model');
@@ -30,7 +34,9 @@ class Balance extends CI_Controller {
 			$this->session->set_userdata('journal',$this->input->post('journal'));
 			echo json_encode(array("status" => "true","message"=>"operation completed successfully"));
 		}else{
-			echo json_encode(array("status" => "false","message"=>"Please check the code de journal"));
+
+			echo json_encode(array("status" => "false","message"=>$this->input->post('journal')));
+
 		}
 		
 	}	
@@ -38,8 +44,7 @@ class Balance extends CI_Controller {
 		$this->load->model('Balance_model');
 		if($this->Balance_model->selectByCompte($this->input->get('compte')) == null){
 			echo json_encode(array("status" => "false","message"=>"Please check the compte"));
-		}else if(date_format($this->input->get('date'))< date_format(date("Y-m-d"),'Y') || date_format($this->input->get('date')>date_format(date("Y-m-d"),'Y')) {
-			echo json_encode(array("status" => "false","message"=>"date not valid"));
+
 		}
 		else if(  $this->input->get('tiers')!="" && $this->Balance_model->selectByTiers($this->input->get('tiers'))==null ){
 			echo json_encode(array("status" => "false","message"=>"Please check the compte de tiers"));
@@ -63,7 +68,8 @@ class Balance extends CI_Controller {
 				$this->session->set_userdata('transaction',$tab);
 				echo json_encode(array("status" => "true","message"=>"operation completed successfully"));
 			}
-			
+
+			redirect('Balance');
 			
 		}
 
