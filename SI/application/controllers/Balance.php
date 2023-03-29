@@ -38,6 +38,8 @@ class Balance extends CI_Controller {
 		$this->load->model('Balance_model');
 		if($this->Balance_model->selectByCompte($this->input->get('compte')) == null){
 			echo json_encode(array("status" => "false","message"=>"Please check the compte"));
+		}else if(date_format($this->input->get('date'))< date_format(date("Y-m-d"),'Y') || date_format($this->input->get('date')>date_format(date("Y-m-d"),'Y')) {
+			echo json_encode(array("status" => "false","message"=>"date not valid"));
 		}
 		else if(  $this->input->get('tiers')!="" && $this->Balance_model->selectByTiers($this->input->get('tiers'))==null ){
 			echo json_encode(array("status" => "false","message"=>"Please check the compte de tiers"));
