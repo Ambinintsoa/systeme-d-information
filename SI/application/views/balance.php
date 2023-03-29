@@ -135,9 +135,9 @@
 
 ?>
   <script>
+       validate('<?php echo base_url(); ?>Balance/validate');
     $(document).ready(function() {
       sendform('<?php echo base_url(); ?>Balance/register', <?php echo json_encode($_SESSION['transaction']); ?>, '<?php echo $this->Balance_model->selectCode($_SESSION['journal'])->code; ?>');
-      validate('<?php echo base_url(); ?>Balance/validate');
     });
     verif(<?php echo json_encode($_SESSION['transaction']); ?>);
   </script>

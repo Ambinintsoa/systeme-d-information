@@ -34,11 +34,8 @@ class Balance extends CI_Controller {
 			$this->session->set_userdata('journal',$this->input->post('journal'));
 			echo json_encode(array("status" => "true","message"=>"operation completed successfully"));
 		}else{
-
 			echo json_encode(array("status" => "false","message"=>$this->input->post('journal')));
-
 		}
-		
 	}	
 	public function register(){
 		$this->load->model('Balance_model');
@@ -82,7 +79,12 @@ class Balance extends CI_Controller {
 				$datas = $this->session->userdata('transaction');
 				for ($i=0; $i <count( $this->session->userdata('transaction') ); $i++) { 
 				 $data = $datas[$i];
-				 $this->Balance_model->insert($data);
+				 if($i==0){
+					$this->Balance_model->insert($data,-1);
+				 }else{
+					$this->Balance_model->insert($data,$data['init']);
+				 }
+				
 				 if($data['tiers']!=""){
 					$this->Balance_model->insertdetail($data);
 				 }
@@ -93,9 +95,11 @@ class Balance extends CI_Controller {
 			}else{
 				echo json_encode(array("status" => "false","message"=>"ERROR occurred"));
 			}
+			redirect('balance');
 		} catch (\Throwable $th) {
 			echo json_encode(array("status" => "false","message"=>"ERROR occurred"));
 		}
+
     }
 	public function delete(){
 		$this->session->unset_userdata('transaction');

@@ -2,14 +2,23 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Balance_model extends CI_Model {
-    public function insert($data) {
+    public function insert($data,$init) {
+        $val = 0;
         try {
+            if($data['init']!=$init){
+                $init = $data['init'];
+                $val = $this->getInitValue()->nextval;
+            }else{
+                $val = $this->getInitlastValue()->last_value;
+            }
             $operations = array(
                 'date'=>$data['date'],
                 'compte'=> $this->selectByCompte($data['compte'])->id,
                 'type'=>$data['situation'],
                 'valeur'=>$data['montant'],
-                'code'=>$this->session->userdata('journal')
+                'code'=>$this->session->userdata('journal'),
+                'num_operation'=>$val
+
             );
             $this->db->insert('operation',$operations);
         } catch (Throwable $th) {
@@ -30,6 +39,18 @@ class Balance_model extends CI_Model {
     public function update($data){
         $this->db->where('id',$data['id']);
         $this->db->update('operation',$data);
+    }
+    public function getInitValue(){
+        $obj = array();
+        $query = " SELECT nextval('seq_operation'); ";
+        $result = $this->db->query(sprintf($query, $idtache));
+        return $result->row();
+    }
+    public function getInitlastValue(){
+        $obj = array();
+        $query = " SELECT * from seq_operation ";
+        $result = $this->db->query(sprintf($query, $idtache));
+        return $result->row();
     }
     public function delete($data){
         $this->db->where('id',$data);
