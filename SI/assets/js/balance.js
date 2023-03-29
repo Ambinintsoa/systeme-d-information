@@ -37,7 +37,22 @@ function sendform(url,d,journal) {
 
     
  $('#form').on("submit",function(event ){
-   
+    sum=0;
+    for (let index = 0; index <d.length; index++) {
+        if(d[index]['situation']==1){
+            sum = sum + Number.parseFloat(d[index]['montant']);
+        }else{
+            sum = sum -  Number.parseFloat(d[index]['montant']);
+        }
+    }
+
+    if(sum ==0 && d.length!=0){
+        init = parseInt(d[d.length-1]['init'])+1;
+    }else if(sum !=0 && d.length!=0){
+        init = d[d.length-1]['init'];
+    }
+    $('.init').val(init);
+    console.log($('.init').val());
     event.preventDefault();
     var data = undefined;
     let request =
@@ -50,7 +65,7 @@ function sendform(url,d,journal) {
         console.log(output);
         const dat = JSON.parse(output);
         if(dat.status == "true"){
-            console.log($('.inite').val());
+           
             var data = {
                 date : $('.date').val(),
                 journal :journal,
@@ -61,20 +76,7 @@ function sendform(url,d,journal) {
             }
             dataContainer = d;
             var message = successmessage(dat.message);
-            sum=0;
-            for (let index = 0; index <dataContainer.length; index++) {
-                if(dataContainer[index]['situation']==1){
-                    sum = sum + Number.parseFloat(dataContainer[index]['montant']);
-                }else{
-                    sum = sum -  Number.parseFloat(dataContainer[index]['montant']);
-                }
-            }
-            if(sum ==0){
-                init = init+1;
-                data['init'] = init;
-            }else{
-                data['init'] = init;
-            }
+            data['init'] = init;
             dataContainer.push(data);
             console.log(dataContainer);
             verif(dataContainer);
@@ -85,6 +87,7 @@ function sendform(url,d,journal) {
         }
       },
       beforeSend: function () {
+        
         //Code à appeler avant l'appel ajax en lui même
       }
     });

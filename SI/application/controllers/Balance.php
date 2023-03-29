@@ -63,6 +63,7 @@ class Balance extends CI_Controller {
 				$data['tiers'] = $this->input->get('tiers');
 				$data['montant'] = $this->input->get('montant');
 				$data['situation'] = $this->input->get('situation');
+				$data['init'] = $this->input->get('init');
 				$tab = $this->session->userdata('transaction');
 				$tab[] = $data;
 				$this->session->set_userdata('transaction',$tab);
@@ -99,6 +100,7 @@ class Balance extends CI_Controller {
 	public function delete(){
 		$this->session->unset_userdata('transaction');
 		$this->session->unset_userdata('journal');
+		redirect('balance');
 	}
 	public function verifcompte(){
 		

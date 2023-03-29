@@ -49,7 +49,7 @@
     <form action="" id="validate"></form>
     <div class="reinitialize"><a href="<?php echo (base_url()) ?>Balance/delete"><button class="btn btn-secondary ">Reinitialize </button> </a></div>
     <form class="row" data-parsley-validate="" id="form" method="get">
-   
+   <input type="hidden" name="init" class="init" value=0>
       <div class="col-md-2 col-sm-2">
         <label>Date du</label>
         <input type="date" class="form-control date" name="date" required="">
@@ -88,7 +88,6 @@
         </div>
       </center>
     </form>
-
     <!-- table -->
     <table class="table">
       <thead class="table-dark">
@@ -115,6 +114,7 @@
           <?php } else { ?>
             <th scope="col"></th>
             <th scope="col"><?php echo $_SESSION['transaction'][$i]['montant']; ?></th>
+            
           <?php } ?>
         </tr>
       <?php } ?>
