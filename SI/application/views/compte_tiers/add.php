@@ -12,7 +12,7 @@
           <h4>Ajouter compte tiers</h4>
         </div>
         <div class="card-body">
-          <form method="POST" action="compte_tiers/add">
+          <form method="POST" action="Compte_tiers/add">
             <div class="form-group">
               <label for="code">Numero</label>
               <input type="text" name="num" id="code" class="form-control" required>

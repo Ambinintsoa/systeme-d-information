@@ -15,7 +15,8 @@ CREATE TABLE IF NOT EXISTS SOCIETY (
 	ADDRESS VARCHAR(100) NOT NULL,
 	TEL VARCHAR(40) NOT NULL,
 	EMAIL VARCHAR(40) NOT NULL,
-	DATE_CREATION DATE
+	DATE_CREATION DATE,
+	LOGO VARCHAR(40) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS USERS (
@@ -162,16 +163,16 @@ INSERT INTO POSTE (NAME,ISADMIN) VALUES('PDG',1),
 -- ('NUMERO C R S','NCRS'),
 -- ('NUMERO STATISTIQUE','NS');
 
-INSERT INTO CODE_DE_JOURNAL (CODE,LIBELLE)VALUES
-('AN','code des a-nouveaux'),
-('BQ','Journal de banqe ou de CCP'),
-('CA','caisse'),
-('CE','journal des cheques a encaisser'),
-('DC','dons et cotisations'),
-('HA','journal des achats'),
-('VT','ventes'),
-('SL','journal des salaires '),
-('OD','operation diverses');
+-- INSERT INTO CODE_DE_JOURNAL (CODE,LIBELLE)VALUES
+-- ('AN','code des a-nouveaux'),
+-- ('BQ','Journal de banqe ou de CCP'),
+-- ('CA','caisse'),
+-- ('CE','journal des cheques a encaisser'),
+-- ('DC','dons et cotisations'),
+-- ('HA','journal des achats'),
+-- ('VT','ventes'),
+-- ('SL','journal des salaires '),
+-- ('OD','operation diverses');
 
 INSERT INTO USERS (FIRSTNAME, LASTNAME, EMAIL, PASSWORD, IDPOSTE) VALUES
 ('RANDRIA', 'Kanto', 'nk@gmail.mg', '12345', 1),

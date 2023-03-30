@@ -12,7 +12,7 @@
           <h4>Ajouter un code</h4>
         </div>
         <div class="card-body">
-          <form method="POST" action="typetiers/add">
+          <form method="POST" action="Typetiers/add">
             <div class="form-group">
               <label for="code">Intitule</label>
               <input type="text" name="intitule" id="code" class="form-control" required>
