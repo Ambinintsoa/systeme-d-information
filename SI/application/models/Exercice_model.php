@@ -63,7 +63,6 @@ class Exercice_model extends CI_Model
         $dfin = $date->getTimestamp();
         $dnow = $date_now->getTimestamp();
         if ($dfin < $dnow) {
-            echo "true";
             $data = array(
                 'debut' => $date_now->format('Y-m-d'),
                 'duree' => $last[0]->duree,
@@ -72,7 +71,6 @@ class Exercice_model extends CI_Model
             );
             $this->db->insert('exercice', $data);
         } else if ($dfin > $dnow){
-            echo "false";
             $this->session->set_userdata('exercice',$last[0]->id);
         }
     }
