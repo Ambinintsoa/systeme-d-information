@@ -7,11 +7,13 @@ class Compte_tiers extends CI_Controller {
         $this->load->model('compte_tiers_model');
       }
     function index(){
+        $this->load->view('header');
         $data['comptes'] = $this->compte_tiers_model->get_compte();
         $this->load->model('Type_tiers_model');
         $gettype['type'] = $this->Type_tiers_model->get_tiers();
         $this->load->view('compte_tiers/add', $gettype);
         $this->load->view('compte_tiers/list', $data);
+        $this->load->view('footer');
     }
     public function add() {
         if($this->input->post()) {

@@ -17,7 +17,8 @@ class Balance_model extends CI_Model {
                 'type'=>$data['situation'],
                 'valeur'=>$data['montant'],
                 'code'=>$this->session->userdata('journal'),
-                'num_operation'=>$val
+                'num_operation'=>$val,
+                'idexercice'=>$this->session->userdata('exercise')
 
             );
             $this->db->insert('operation',$operations);

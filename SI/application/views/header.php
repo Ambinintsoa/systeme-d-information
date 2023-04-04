@@ -19,11 +19,13 @@
             </a>
 
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="<?php echo base_url('Welcome'); ?>" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('Welcome'); ?>" class="nav-link">HOME</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('Balance'); ?>" class="nav-link">ECRITURE</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('Balance1'); ?>" class="nav-link">BALANCE</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('Grandlivre'); ?>" class="nav-link">GRAND LIVRE</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('Society_controller'); ?>" class="nav-link">SOCIETE</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('Plan_comptable'); ?>" class="nav-link">PLAN COMPTABLE</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('Compte_tiers'); ?>" class="nav-link">COMPTE TIERS</a></li>
             </ul>
         </header>
     </div>

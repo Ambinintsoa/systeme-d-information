@@ -35,7 +35,7 @@ function successmessage(message) {
 }
 function sendform(url,d,journal) {
 
-    
+
  $('#form').on("submit",function(event ){
     sum=0;
     for (let index = 0; index <d.length; index++) {
@@ -52,7 +52,12 @@ function sendform(url,d,journal) {
         init = d[d.length-1]['init'];
     }
     $('.init').val(init);
-    console.log($('.init').val());
+ 
+    if(new Date($('.date').val()).getFullYear()!= new Date().getFullYear()){
+        var str = "'";
+        str = [new Date().getFullYear(), '0'.concat(new Date().getMonth()+1),'0'.concat(new Date().getDate())].join('-');
+        $('.date').val(str);
+    }
     event.preventDefault();
     var data = undefined;
     let request =
@@ -65,7 +70,8 @@ function sendform(url,d,journal) {
         console.log(output);
         const dat = JSON.parse(output);
         if(dat.status == "true"){
-           
+            
+
             var data = {
                 date : $('.date').val(),
                 journal :journal,
@@ -107,7 +113,7 @@ function sendform(url,d,journal) {
 });
 }
 function sendcode(url) {
-    $('#code').on("submit",function(event ){
+    $('#code').on("submit",function(event){
        event.preventDefault();
        let request =
        $.ajax({
@@ -118,8 +124,8 @@ function sendcode(url) {
          success : function(output){
            const dat = JSON.parse(output);
            if(dat.status == "true"){
-            var message = successmessage(dat.message);
             $('#code').hide();
+            location.reload();
            }else{
                var message = errormessage(dat.message);
            }
@@ -154,10 +160,10 @@ for (let index = 0; index <dataContainer.length; index++) {
     }
 }
 console.log(sum);
-if(sum ==0){
+if(sum ==0 && dataContainer.length!=0){
     let validate = document.createElement('div');   
     validate.innerHTML = `
-    <button type="btn" class="btn btn-secondary mb-2 posedit theme-color btn2" >GENERER</button> `;
+    <button type="btn" class="btn btn-primary mb-2 posedit theme-color btn2" >GENERER</button> `;
     $('.auto1').empty();
     $('.auto1').append(validate);
 }else{
