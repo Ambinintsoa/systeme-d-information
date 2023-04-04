@@ -10,9 +10,11 @@ class Plan_comptable extends CI_Controller
     }
     public function index()
     {
+        $this->load->view('header');
         $data['comptes'] = $this->Plan_comptable_model->get_pc();
         $this->load->view('plan_comptable/add');
         $this->load->view('plan_comptable/list', $data);
+        $this->load->view('footer');
     }
 
     public function add()

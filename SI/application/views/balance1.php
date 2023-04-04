@@ -3,16 +3,14 @@
 
 <body>
     <div class="container">
-        <h3>GRAND LIVRE</h3>
+        <h3>BALANCE</h3>
 
         <!-- table -->
         <table class="table">
             <thead class="table-dark">
                 <tr>
-                    <th scope="col">Date</th>
-                    <th scope="col">Identifiant</th>
                     <th scope="col">Numero de compte</th>
-                    <th scope="col">Nom compte</th>
+                    <th scope="col">Intitule des comptes</th>
                     <th scope="col">Debit</th>
                     <th scope="col">Credit</th>
                 </tr>
@@ -20,8 +18,6 @@
             <tbody>
                 <?php foreach ($operation as $op) { ?>
                     <tr>
-                    <th scope="col"><?php echo $op['date']; ?></th>
-                        <th scope="col"><?php echo $op['id']; ?></th>
                         <th scope="col"><?php echo $op['num_compte']; ?></th>
                         <th scope="col"><?php echo $op['nom_compte']; ?></th>
                         <th scope="col"><?php
@@ -36,7 +32,6 @@
                         } else {
                             echo '';
                         } ?></th>
-                        <th><a href="<?php echo base_url('Grandlivre/edit/' . $op['num_operation']); ?>">supprimer</a></th>
                     </tr>
                 <?php } ?>
             </tbody>

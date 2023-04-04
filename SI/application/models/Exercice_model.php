@@ -44,4 +44,12 @@ class Exercice_model extends CI_Model
         $this->db->where('id', $id);
         $this->db->delete('exercice');
     }
+
+    public function get_last_exercice()
+    {
+        $max = $this->db->select_max('id');
+        $this->db->where('id', $max);
+        $query = $this->db->get('exercice');
+        return $query->row();
+    }
 }

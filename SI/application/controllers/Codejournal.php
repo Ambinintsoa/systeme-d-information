@@ -8,9 +8,11 @@ class Codejournal extends CI_Controller {
       }
     
       public function index() {
+        $this->load->view('header');
         $data['codes'] = $this->Code_journal_model->get_code();
         $this->load->view('code_de_journal/add');
         $this->load->view('code_de_journal/list', $data);
+        $this->load->view('footer');
       }
     
       public function add() {
