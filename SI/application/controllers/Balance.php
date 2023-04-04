@@ -36,6 +36,7 @@ class Balance extends CI_Controller {
 		}else{
 			echo json_encode(array("status" => "false","message"=>$this->input->post('journal')));
 		}
+		
 	}	
 	public function register(){
 		$this->load->model('Balance_model');

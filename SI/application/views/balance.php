@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BALANCE</title>
+  <title>ECRITURE</title>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/custom.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
@@ -17,8 +17,6 @@
 <body>
   <?php
   if ($this->session->has_userdata('transaction')) {
-    // var_dump($this->session->userdata('transaction'));
-
     $this->session->unset_userdata('code');
   } else {
     $transaction = array();
@@ -42,12 +40,12 @@
             <?php } ?>
           </select>
           
-          <button type="submit" class="btn btn-secondary mb-2 posedit theme-color btn3">Valider</button>
+          <button type="submit" class="btn btn-primary mb-2 posedit theme-color btn3">Valider</button>
         </div>
       </form>
     <?php } ?>
     <form action="" id="validate"></form>
-    <div class="reinitialize"><a href="<?php echo (base_url()) ?>Balance/delete"><button class="btn btn-secondary ">Reinitialize </button> </a></div>
+    <div class="reinitialize"><a href="<?php echo (base_url()) ?>Balance/delete"><button class="btn btn-primary ">Reinitialize </button> </a></div>
     <form class="row" data-parsley-validate="" id="form" method="get">
    <input type="hidden" name="init" class="init" value=0>
       <div class="col-md-2 col-sm-2">
@@ -84,10 +82,11 @@
       <center>
         <div class="col-auto">
           <form action="" id="validate"></form>
-          <button type="submit" class="btn btn-secondary mb-2 posedit theme-color btn1">Valider</button>
+          <button type="submit" class="btn btn-primary mb-2 posedit theme-color btn1">Valider</button>
         </div>
       </center>
     </form>
+    <br><br><br><br>
     <!-- table -->
     <table class="table">
       <thead class="table-dark">
@@ -132,14 +131,11 @@
 
 <?php if (isset($_SESSION['journal'])) {
   $this->load->model('Balance_model');
-
 ?>
   <script>
-       validate('<?php echo base_url(); ?>Balance/validate');
-    $(document).ready(function() {
+      validate('<?php echo base_url(); ?>Balance/validate');
       sendform('<?php echo base_url(); ?>Balance/register', <?php echo json_encode($_SESSION['transaction']); ?>, '<?php echo $this->Balance_model->selectCode($_SESSION['journal'])->code; ?>');
-    });
-    verif(<?php echo json_encode($_SESSION['transaction']); ?>);
+      verif(<?php echo json_encode($_SESSION['transaction']); ?>);
   </script>
 <?php } else { ?>
   <script>
