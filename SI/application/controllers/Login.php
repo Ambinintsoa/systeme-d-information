@@ -28,4 +28,9 @@ class Login extends CI_Controller
 			redirect('balance');
 		}
 	}
+
+	public function logout() {
+		$this->session->unset_userdata('iduser');
+		redirect('');
+	}
 }

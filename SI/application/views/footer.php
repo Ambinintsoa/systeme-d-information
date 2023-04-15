@@ -7,34 +7,20 @@
             <div class="col-6 col-md-2 mb-3">
                 <h5>Section</h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                    <li class="nav-item mb-1"><a href="<?php echo base_url('Welcome'); ?>" class="nav-link p-0 text-muted text-lowercase fs-6">HOME</a></li>
+                <li class="nav-item mb-1"><a href="<?php echo base_url('Society_controller'); ?>" class="nav-link  p-0 text-muted text-lowercase  fs-6">SOCIETE</a></li>
+                <li class="nav-item mb-1"><a href="<?php echo base_url('Plan_comptable'); ?>" class="nav-link  p-0 text-muted text-lowercase  fs-6">PLAN COMPTABLE</a></li>
+                <li class="nav-item mb-1"><a href="<?php echo base_url('Compte_tiers'); ?>" class="nav-link  p-0 text-muted text-lowercase  fs-6">COMPTE TIERS</a></li>
+                <li class="nav-item mb-1"><a href="<?php echo base_url('Balance'); ?>" class="nav-link  p-0 text-muted text-lowercase  fs-6">ECRITURE</a></li>
+                <li class="nav-item mb-1"><a href="<?php echo base_url('Balance1'); ?>" class="nav-link  p-0 text-muted text-lowercase  fs-6">BALANCE</a></li>
+                <li class="nav-item mb-1"><a href="<?php echo base_url('Grandlivre'); ?>" class="nav-link  p-0 text-muted text-lowercase  fs-6">GRAND LIVRE</a></li>
                 </ul>
             </div>
 
             <div class="col-6 col-md-2 mb-3">
-                <h5>Section</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-                </ul>
             </div>
 
             <div class="col-6 col-md-2 mb-3">
-                <h5>Section</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-                </ul>
             </div>
 
             <div class="col-md-5 offset-md-1 mb-3">
@@ -44,7 +30,7 @@
                     <div class="d-flex flex-column flex-sm-row w-100 gap-2">
                         <label for="newsletter1" class="visually-hidden">Email address</label>
                         <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                        <button class="btn btn-primary" type="button">Subscribe</button>
+                        <button class="btn btn-success" type="button">Subscribe</button>
                     </div>
                 </form>
             </div>

@@ -39,15 +39,17 @@
               <option value="<?php echo $code[$i]->id; ?>"><?php echo $code[$i]->code; ?></option>
             <?php } ?>
           </select>
-          
-          <button type="submit" class="btn btn-primary mb-2 posedit theme-color btn3">Valider</button>
+
+          <button type="submit" class="btn btn-success mb-2 posedit theme-color btn3">Valider</button>
         </div>
       </form>
-    <?php } ?>
+    <?php } else { ?>
+      
     <form action="" id="validate"></form>
-    <div class="reinitialize"><a href="<?php echo (base_url()) ?>Balance/delete"><button class="btn btn-primary ">Reinitialize </button> </a></div>
+    <div class="reinitialize"><a href="<?php echo (base_url()) ?>Balance/delete"><button class="btn btn-danger ">Reinitialize </button> </a></div>
+    <?php } ?>
     <form class="row" data-parsley-validate="" id="form" method="get">
-   <input type="hidden" name="init" class="init" value=0>
+      <input type="hidden" name="init" class="init" value=0>
       <div class="col-md-2 col-sm-2">
         <label>Date du</label>
         <input type="date" class="form-control date" name="date" required="">
@@ -66,13 +68,6 @@
         <input type="number" class="form-control montant" placeholder="XXXXX" name="montant" required="">
       </div>
       <div class="col-md-1 col-sm-1">
-        <label>Devise</label>
-        <select class="form-select  col-md-1 col-sm-1 devise" name="devise" aria-label=" example" required="">
-          <option value="1">DEBIT</option>
-          <option value="0">CREDIT</option>
-        </select>
-      </div>
-      <div class="col-md-1 col-sm-1">
         <label></label>
         <select class="form-select  col-md-1 col-sm-2 situation" name="situation" aria-label=" example" required="">
           <option value="1">DEBIT</option>
@@ -82,48 +77,60 @@
       <center>
         <div class="col-auto">
           <form action="" id="validate"></form>
-          <button type="submit" class="btn btn-primary mb-2 posedit theme-color btn1">Valider</button>
+          <button type="submit" class="btn btn-success mb-2 posedit theme-color btn1">Valider</button>
         </div>
       </center>
     </form>
     <br><br><br><br>
     <!-- table -->
-    <table class="table">
-      <thead class="table-dark">
-        <tr>
-          <th scope="col">Date</th>
-          <th scope="col">Journal</th>
-          <th scope="col">Compte</th>
-          <th scope="col">Compte tiers</th>
-          <th scope="col">debit</th>
-          <th scope="col">credit</th>
-        </tr>
-      </thead>
-      <tbody>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card">
+            <div class="card-header">
+              <h4>Operation Comptable</h4>
+            </div>
+            <div class="card-body">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Journal</th>
+                    <th scope="col">Compte</th>
+                    <th scope="col">Compte tiers</th>
+                    <th scope="col">debit</th>
+                    <th scope="col">credit</th>
+                  </tr>
+                </thead>
+                <tbody>
 
-      <?php for ($i = 0; $i < count($_SESSION['transaction']); $i++) { ?>
-        <tr >
-          <th scope="col"><?php echo $_SESSION['transaction'][$i]['date']; ?></th>
-          <th scope="col"><?php echo $this->Balance_model->selectCode($_SESSION['journal'])->code; ?></th>
-          <th scope="col"><?php echo $_SESSION['transaction'][$i]['compte']; ?></th>
-          <th scope="col"><?php echo $_SESSION['transaction'][$i]['tiers']; ?></th>
-          <?php if ($_SESSION['transaction'][$i]['situation'] == 1) { ?>
-            <th scope="col"><?php echo $_SESSION['transaction'][$i]['montant']; ?></th>
-            <th scope="col"></th>
-          <?php } else { ?>
-            <th scope="col"></th>
-            <th scope="col"><?php echo $_SESSION['transaction'][$i]['montant']; ?></th>
-            
-          <?php } ?>
-        </tr>
-      <?php } ?>
-      </tbody>
-    </table>
-    <center>
-      <div class="col-auto auto1">
+                  <?php for ($i = 0; $i < count($_SESSION['transaction']); $i++) { ?>
+                    <tr>
+                      <th scope="col"><?php echo $_SESSION['transaction'][$i]['date']; ?></th>
+                      <th scope="col"><?php echo $this->Balance_model->selectCode($_SESSION['journal'])->code; ?></th>
+                      <th scope="col"><?php echo $_SESSION['transaction'][$i]['compte']; ?></th>
+                      <th scope="col"><?php echo $_SESSION['transaction'][$i]['tiers']; ?></th>
+                      <?php if ($_SESSION['transaction'][$i]['situation'] == 1) { ?>
+                        <th scope="col"><?php echo $_SESSION['transaction'][$i]['montant']; ?></th>
+                        <th scope="col"></th>
+                      <?php } else { ?>
+                        <th scope="col"></th>
+                        <th scope="col"><?php echo $_SESSION['transaction'][$i]['montant']; ?></th>
+
+                      <?php } ?>
+                    </tr>
+                  <?php } ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
-    </center>
+    </div>
   </div>
+    <center>
+      <button type="btn" class="btn btn-success mb-2 posedit theme-color btn2">Enregistrer</button>
+    </center>
 </body>
 
 </html>
@@ -133,9 +140,9 @@
   $this->load->model('Balance_model');
 ?>
   <script>
-      validate('<?php echo base_url(); ?>Balance/validate');
-      sendform('<?php echo base_url(); ?>Balance/register', <?php echo json_encode($_SESSION['transaction']); ?>, '<?php echo $this->Balance_model->selectCode($_SESSION['journal'])->code; ?>');
-      verif(<?php echo json_encode($_SESSION['transaction']); ?>);
+    validate('<?php echo base_url(); ?>Balance/validate');
+    sendform('<?php echo base_url(); ?>Balance/register', <?php echo json_encode($_SESSION['transaction']); ?>, '<?php echo $this->Balance_model->selectCode($_SESSION['journal'])->code; ?>');
+    verif(<?php echo json_encode($_SESSION['transaction']); ?>);
   </script>
 <?php } else { ?>
   <script>
@@ -144,4 +151,3 @@
     });
   </script>
 <?php } ?>
-
