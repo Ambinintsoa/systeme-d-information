@@ -10,8 +10,10 @@ class Society_controller extends CI_Controller
 
     public function index()
     {
+        $this->load->view('header');
         $data['society'] = $this->Society_model->get_society();
         $this->load->view('society/info',$data);
+        $this->load->view('footer');
     }
 
     public function add()

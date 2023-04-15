@@ -9,9 +9,10 @@ class Users_model extends CI_Model
         return $query->result();
     }
 
-    public function get_user_by_id($id)
+    public function check($email,$pwd)
     {
-        $this->db->where('id', $id);
+        $this->db->where('email', $email);
+        $this->db->where('password', $pwd);
         $query = $this->db->get('users');
         return $query->row();
     }

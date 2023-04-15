@@ -19,13 +19,13 @@
             </a>
 
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="<?php echo base_url('Welcome'); ?>" class="nav-link">HOME</a></li>
-                <li class="nav-item"><a href="<?php echo base_url('Balance'); ?>" class="nav-link">ECRITURE</a></li>
-                <li class="nav-item"><a href="<?php echo base_url('Balance1'); ?>" class="nav-link">BALANCE</a></li>
-                <li class="nav-item"><a href="<?php echo base_url('Grandlivre'); ?>" class="nav-link">GRAND LIVRE</a></li>
-                <li class="nav-item"><a href="<?php echo base_url('Society_controller'); ?>" class="nav-link">SOCIETE</a></li>
-                <li class="nav-item"><a href="<?php echo base_url('Plan_comptable'); ?>" class="nav-link">PLAN COMPTABLE</a></li>
-                <li class="nav-item"><a href="<?php echo base_url('Compte_tiers'); ?>" class="nav-link">COMPTE TIERS</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('Welcome'); ?>" class="nav-link text-black">HOME</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('Society_controller'); ?>" class="nav-link text-black">SOCIETE</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('Plan_comptable'); ?>" class="nav-link text-black">PLAN COMPTABLE</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('Compte_tiers'); ?>" class="nav-link text-black">COMPTE TIERS</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('Balance'); ?>" class="nav-link text-black">ECRITURE</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('Balance1'); ?>" class="nav-link text-black">BALANCE</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('Grandlivre'); ?>" class="nav-link text-black">GRAND LIVRE</a></li>
             </ul>
         </header>
     </div>

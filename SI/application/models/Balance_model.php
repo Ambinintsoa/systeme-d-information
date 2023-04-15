@@ -11,6 +11,7 @@ class Balance_model extends CI_Model {
             }else{
                 $val = $this->getInitlastValue()->last_value;
             }
+            echo $this->session->userdata('exercice');
             $operations = array(
                 'date'=>$data['date'],
                 'compte'=> $this->selectByCompte($data['compte'])->id,
@@ -18,7 +19,7 @@ class Balance_model extends CI_Model {
                 'valeur'=>$data['montant'],
                 'code'=>$this->session->userdata('journal'),
                 'num_operation'=>$val,
-                'idexercice'=>$this->session->userdata('exercise')
+                'idexercice'=>$this->session->userdata('exercice')
 
             );
             $this->db->insert('operation',$operations);
