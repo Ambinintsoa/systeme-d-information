@@ -27,6 +27,6 @@ class Grandlivre extends CI_Controller
     public function delete($num)
     {
         $this->Operation->deleteOperation($num);
-        redirect('Grandlivre?devise=1');
+            redirect('Grandlivre?devise=1');
     }
 }

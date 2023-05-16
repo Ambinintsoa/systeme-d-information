@@ -17,14 +17,16 @@ class Operation extends CI_Model
         return $compte;
     }
 
-    public function sumDebit() {
+    public function sumDebit()
+    {
         $request = "SELECT o.idexercice, (SUM(o.valeur)) as somme FROM operation o where o.type = 1 GROUP BY o.idexercice";
         $query = $this->db->query($request);
         $row = $query->row_array();
         return $row;
     }
 
-    public function sumCredit() {
+    public function sumCredit()
+    {
         $request = "SELECT o.idexercice, (SUM(o.valeur)) as somme FROM operation o where o.type = 0 GROUP BY o.idexercice";
         $query = $this->db->query($request);
         $row = $query->row_array();
