@@ -23,10 +23,17 @@ class Balance extends CI_Controller {
 
 		$this->load->view('header');
 		$this->load->model('Balance_model');
+		$this->load->model('Analyse_model');
 		$this->load->model('Devise_model');
+		
+		$data['centre'] = $this->Analyse_model->getAllCentre();
+		$data['nature'] = $this->Analyse_model->getAllNature();
+		$data['produit'] = $this->Analyse_model->getAllProduit();
 		$data['code'] = $this->Balance_model->selectAllCode();
 		$data['devise'] = $this->Devise_model->selectAllDevices();
+		$this->load->view('analyse/index',$data);
 		$this->load->view('balance',$data);
+		
 		$this->load->view('footer');
 
 	}
@@ -89,7 +96,9 @@ class Balance extends CI_Controller {
 				$tab = $this->session->userdata('transaction');
 				$tab[] = $data;
 				$this->session->set_userdata('transaction',$tab);
-				echo json_encode(array("status" => "true","message"=>"operation completed successfully","montant"=>$data['montant'],"id"=>count($tab)-1));
+
+				$compte = $this->Balance_model->selectByCompte($this->input->get('compte'))->id;
+				echo json_encode(array("status" => "true","message"=>"operation completed successfully","montant"=>$data['montant'],"id"=>count($tab)-1,"id_compte"=>$compte));
 			}
 
 			
@@ -121,13 +130,13 @@ class Balance extends CI_Controller {
             }
 
             $date = str_replace('/', '-', $column[0]);
-			echo str_split($column[1], 2)[0];
+			$data = str_split($column[1], 2);
             date_default_timezone_set('Europe/Moscow');
             $data = array(
                 'date' => date('Y-m-d', strtotime($date)),
                 'ref' => $column[1],
                 'compte' => $column[2],
-                'code' => $this->Code_journal_model->getCJByCode(str_split($column[1], 2)[0])->id,
+                'code' => $this->Code_journal_model->getCJByCode($data[0])->id,
                 'situation' => $type,
                 'montant' => $valeur,
                 'init'=>0,
@@ -145,7 +154,6 @@ class Balance extends CI_Controller {
 	public function validate(){
 		try {
 			$this->load->model('Balance_model');
-			
 			if($this->session->has_userdata('transaction') && $this->session->has_userdata('journal') ){
 				$datas = $this->session->userdata('transaction');
 				for ($i=0; $i <count( $this->session->userdata('transaction') ); $i++) { 
@@ -160,16 +168,24 @@ class Balance extends CI_Controller {
 					$this->Balance_model->insertdetail($data);
 				 }
 				}
+				$this->load->model('Analyse_model');
+				$a = $this->session->get_userdata('analyses');
+			 var_dump($a['analyses']['analyses']);
+        		$this->Analyse_model->set_compte($a['analyses']['analyses']);
 				$this->session->unset_userdata('transaction') ;
 				$this->session->unset_userdata('journal') ;
-				$this->delete();
+				$this->session->unset_userdata('transaction');
+				$this->session->unset_userdata('journal');
 				echo json_encode(array("status" => "true","message"=>"operation completed successfully"));
 			}else{
-				echo json_encode(array("status" => "false","message"=>"ERROR occurred"));
+
+				echo json_encode(array("status" => "false","message"=>"aaaaaa"));
 			}
-			redirect('balance');
+			//   redirect('balance');
+			
 		} catch (\Throwable $th) {
-			echo json_encode(array("status" => "false","message"=>"ERROR occurred"));
+		
+			echo json_encode(array("status" => "false","message"=>$th));
 		}
 
     }

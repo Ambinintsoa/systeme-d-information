@@ -1,5 +1,6 @@
 var dataContainer = new Array();
 var init = 0;
+var comptest = 0;
 function createligne(date, Journal, compte, tiers, montant, situation,id,url,ref) {
     var ligne = document.createElement("tr");
     var construct = `     
@@ -75,8 +76,7 @@ function sendform(url, d, journal,urlbase) {
                     console.log(output);
                     const dat = JSON.parse(output);
                     if (dat.status == "true") {
-
-
+                        
                         var data = {
                             date: $('.date').val(),
                             journal: journal,
@@ -92,6 +92,12 @@ function sendform(url, d, journal,urlbase) {
                         dataContainer.push(data);
                         console.log(dataContainer);
                         verif(dataContainer);
+                        if($('.compte').val().toString().charAt(0) == '6'){
+                                $('.frame').css('display', 'block');
+                                console.log(output.id_compte);
+                                document.getElementsByClassName('frame')[0].setAttribute("id", dat.id_compte) ;
+                        }
+
                         $('.table').append(createligne($('.date').val(), journal, $('.compte').val(), $('.tiers').val(), dat.montant, $('.situation').val(),dat.id,urlbase,$('.ref').val()));
                     } else {
                         console.log(output.message);

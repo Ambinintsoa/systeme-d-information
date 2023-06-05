@@ -1,0 +1,106 @@
+@mixin config($height:fix-content,$width:fix-content) {
+    width: $width;
+    height: $height;
+}
+@mixin bottom(){
+    border-bottom: solid 1px #333;
+}
+@mixin  right() {
+    border-right: solid 1px #333;
+}
+
+.label{
+    
+    @include config(fix-content,20%);
+    float: left;
+}
+.frame{
+    padding: 2%;
+    display: none;
+    width: fit-content;
+    input{
+        @include config(10px,3vw);
+        font-size: 8px;
+    }
+    a{
+        float: right;
+    }
+    // position: fixed;
+    // margin-top: 50%;
+    // margin-left: 30%;
+    position: absolute;
+    background-color: white;
+    margin-left: 30%;
+    margin-top: 30%;
+    z-index: 1;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 8px;
+    border-style: outset;
+    @include config(fix-content, 40vw);
+    display: none;
+    &__quantite{
+        @include config(5vh);
+        padding: 2%;
+        @include bottom();
+    }
+    &__validity{
+        display: none;
+        
+        &__button{
+            font-size: 5px;
+            width: fit-content;
+            text-transform: uppercase;
+            background-color: white;
+        }
+    }
+    &__nature{
+        padding-left: 4vh;
+        @include config(5vh,94%);
+        @include bottom();
+        padding-top: 2vh
+    }
+    &__notification{
+        @include config(7%,30%);
+        color: white;
+    }
+    &__close{
+        @include config(40px,40px);
+        float: right;
+        background-color: #333;
+    }
+    &__title{
+        @include config(5vh);
+        @include bottom();
+    }
+    &__incorporable{
+        @include bottom();
+        @include config(5vh);
+        &__contenant{
+            margin-left: 2vw;
+        }
+    }
+    &__corporable{
+        // background-color: #333 ;
+        @include config(fix-content,100%);
+        &__ensemble{
+            
+            @include config(12vh);
+            @include bottom();
+            &__product{
+                
+                padding-top: 8%;
+                @include config(4vh,10%);
+                float: left;
+            }
+            &__center{
+                @include config(fix-content,100%);
+                &__info{
+                    padding: 1vh;
+                    
+                    @include config(8vh,15%);
+                    float: right;
+                }
+            }
+        }
+    }
+}

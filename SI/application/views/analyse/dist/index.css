@@ -1,0 +1,98 @@
+.label {
+  width: 20%;
+  height: fix-content;
+  float: left;
+}
+
+.frame {
+  padding: 2%;
+  position: absolute;
+  background-color: white;
+  margin-left: 30%;
+  margin-top: 30%;
+  z-index: 1;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 8px;
+  border-style: outset;
+  width: 32vw;
+  height: fix-content;
+}
+.frame input {
+  width: 4vw;
+  height: 10px;
+  font-size: 8px;
+}
+.frame a {
+  float: right;
+}
+.frame__quantite {
+  width: fix-content;
+  height: 5vh;
+  padding: 2%;
+  border-bottom: solid 1px #333;
+}
+.frame__validity {
+  display: none;
+}
+.frame__validity__button {
+  font-size: 5px;
+  width: fit-content;
+  text-transform: uppercase;
+  background-color: white;
+}
+.frame__nature {
+  padding-left: 4vh;
+  width: 94%;
+  height: 5vh;
+  border-bottom: solid 1px #333;
+  padding-top: 2vh;
+}
+.frame__notification {
+  width: 30%;
+  height: 7%;
+  color: white;
+}
+.frame__close {
+  width: 40px;
+  height: 40px;
+  float: right;
+  background-color: #333;
+}
+.frame__title {
+  width: fix-content;
+  height: 5vh;
+  border-bottom: solid 1px #333;
+}
+.frame__incorporable {
+  border-bottom: solid 1px #333;
+  width: fix-content;
+  height: 5vh;
+}
+.frame__incorporable__contenant {
+  margin-left: 2vw;
+}
+.frame__corporable {
+  width: 100%;
+  height: fix-content;
+}
+.frame__corporable__ensemble {
+  width: fix-content;
+  height: 12vh;
+  border-bottom: solid 1px #333;
+}
+.frame__corporable__ensemble__product {
+  padding-top: 8%;
+  width: 20%;
+  height: 4vh;
+  float: left;
+}
+.frame__corporable__ensemble__center {
+  width: 100%;
+  height: fix-content;
+}
+.frame__corporable__ensemble__center__info {
+  padding: 1vh;
+  width: 15%;
+  height: 8vh;
+  float: right;
+}

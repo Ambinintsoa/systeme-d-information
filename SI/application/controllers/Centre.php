@@ -11,13 +11,21 @@ class Centre extends CI_Controller
     public function index()
     {
         $this->load->view('header');
-        $this->load->view('Centre/add');
+        $data['centre']=$this->Centre_model->get_();
+        $this->load->view('Centre/add',$data);
         $this->load->view('footer');
     }
 
     public function add()
     {
-        $this->Centre_model->add();
+        $selectedOptions = $this->input->post('check');
+        var_dump($selectedOptions);
+        if ($this->input->post('check')==0) {
+            $this->Centre_model->add_0();
+        }
+        if ($this->input->post('check')==1) {
+            $this->Centre_model->add_1();
+        }
         redirect('Centre');
     }
 }
